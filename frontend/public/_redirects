@@ -1,0 +1,5 @@
+# Redirects for client-side routing
+# This file is used by Netlify
+# For other platforms, you may need to configure redirects differently
+
+/* /index.html 200

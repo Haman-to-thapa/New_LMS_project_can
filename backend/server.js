@@ -35,6 +35,19 @@ const startServer = async () => {
       ? process.env.ALLOWED_ORIGINS.split(',')
       : ['http://localhost:5173', 'http://localhost:3000'];
 
+    // Always include the deployed frontend domains
+    const deployedDomains = [
+      'https://new-lms-project-can-1.onrender.com',
+      'https://new-lms-project-can-1.onrender.com'
+    ];
+
+    // Add deployed domains if they're not already included
+    deployedDomains.forEach(domain => {
+      if (!allowedOrigins.includes(domain)) {
+        allowedOrigins.push(domain);
+      }
+    });
+
     console.log('🔒 CORS configured with allowed origins:', allowedOrigins);
 
     // Set up CORS middleware
